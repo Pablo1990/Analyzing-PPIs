@@ -18,21 +18,33 @@ geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => squa
 
 summary(geometric)
 
+write.graph(sf21, file = "randomGeo2DNetwork.sif", "pajek")
+
 #http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
 #They use exponent.out = 2.1 - 2.4
 sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = rEdges, exponent.out = 2.1, exponent.in = -1, multiple = T)
 
 eSf21 <- E(sf21) #edges time!
 
-
-fileConn<-file("sfEdges.sf")
-write.graph(sf21, file = "sfEdges.sf", format = "edgelist")
-close(fileConn)
+write.graph(sf21, file = "randomSFNetwork.sif", "pajek")
 
 #BA model (scale-free)
 #They use power = 2.1 - 2.4
 #sf21 <- barabasi.game(n = vertices, power = 2.1, m = vertices/10, directed = F)
 
+
+# ---------------- Reading results ------------#
+
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
+
+geo2DGC <- read.csv(file = "data/geo2DGraphletsCount.txt", sep = "\t")
+showGraphletCountInformation(geo2DGC)
+
+sf <- read.csv(file = "data/sfGraphletsCount.txt", sep = "\t")
+showGraphletCountInformation(sf)
+
+original <- read.csv(file = "data/graphletsCountsSaccharomyces.txt", sep = "\t")
+showGraphletCountInformation(original)
 
 
 
