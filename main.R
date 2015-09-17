@@ -4,38 +4,33 @@
 #library("ergm.graphlets", lib.loc="/Library/Frameworks/R.framework/Versions/3.1/Resources/library")
 
 library(igraph)
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/generateRandomNetworks.R', echo=TRUE)
 
-vertices <- 4561
-rEdges <- 7906 #Should verify this number: 7906 (suppose is the real one)
-
+#vertices <- 4561
+#rEdges <- 7906 #Should verify this number: 7906 (suppose is the real one)
 #The tunned one
 edges <- 8015
-
 r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))
-#radius on the paper? They didn't say anything...
 
-geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => square, T => a Torus
+generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000, nameOfOriginal = "SCerevisiae")
 
-summary(geometric)
+generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, nameOfOriginal = "Drosophila")
 
-write.graph(geometric, file = "randomGeo2DNetwork.sif", "pajek")
+generateRandomNetworks(vertices = 2911, edges = 5123, rEdges = 5123, nameOfOriginal = "CElegans")
 
-#http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
-#They use exponent.out = 2.1 - 2.4
-sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = rEdges, exponent.out = 2.1, exponent.in = -1, multiple = T)
+generateRandomNetworks(vertices = 2018, edges = 2930, rEdges = 2990, nameOfOriginal = "YeastAnother")
 
-eSf21 <- E(sf21) #edges time!
+generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, nameOfOriginal = "SCerevisiaeRefined")
 
-write.graph(sf21, file = "randomSFNetwork.sif", "pajek")
 
-#BA model (scale-free)
-#They use power = 2.1 - 2.4
-#sf21 <- barabasi.game(n = vertices, power = 2.1, m = vertices/10, directed = F)
+
 
 
 # ---------------- Reading results ------------#
 
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
+
+layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE))
 
 geo2DGC <- read.csv(file = "data/geo2DGraphletsCount.txt", sep = "\t")
 showGraphletCountInformation(geo2DGC, "Random geometric graph")
@@ -51,6 +46,12 @@ showGraphletCountInformation(original1, "Drosophila")
 
 original2 <- read.csv(file = "data/caenorhabditisElegansGraphletCounter.txt", sep = "\t")
 showGraphletCountInformation(original2, "C. Elegans")
+
+originalRefined <- read.csv(file = "data/yeastRefinedGraphletCounter.txt", sep = "\t")
+showGraphletCountInformation(originalRefined, "S. Cerevisiae refined")
+
+originalRefined <- read.csv(file = "data/yeastAnotherGraphletCounter.txt", sep = "\t")
+showGraphletCountInformation(originalRefined, "S. Cerevisiae another one")
 
 
 
