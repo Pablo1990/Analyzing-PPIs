@@ -18,7 +18,7 @@ geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => squa
 
 summary(geometric)
 
-write.graph(sf21, file = "randomGeo2DNetwork.sif", "pajek")
+write.graph(geometric, file = "randomGeo2DNetwork.sif", "pajek")
 
 #http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
 #They use exponent.out = 2.1 - 2.4
