@@ -38,13 +38,19 @@ write.graph(sf21, file = "randomSFNetwork.sif", "pajek")
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
 
 geo2DGC <- read.csv(file = "data/geo2DGraphletsCount.txt", sep = "\t")
-showGraphletCountInformation(geo2DGC)
+showGraphletCountInformation(geo2DGC, "Random geometric graph")
 
 sf <- read.csv(file = "data/sfGraphletsCount.txt", sep = "\t")
-showGraphletCountInformation(sf)
+showGraphletCountInformation(sf, "Random Scale free")
 
 original <- read.csv(file = "data/graphletsCountsSaccharomyces.txt", sep = "\t")
-showGraphletCountInformation(original)
+showGraphletCountInformation(original, "S. Cerevisiae")
+
+original1 <- read.csv(file = "data/drophilaGraphletCounter.txt", sep = "\t")
+showGraphletCountInformation(original1, "Drosophila")
+
+original2 <- read.csv(file = "data/caenorhabditisElegansGraphletCounter.txt", sep = "\t")
+showGraphletCountInformation(original2, "C. Elegans")
 
 
 
