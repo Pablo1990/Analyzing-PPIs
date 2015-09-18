@@ -12,9 +12,9 @@ plotingResults <- function (fileGeo2D, title, fileOriginal, fileSF) {
   
   yMax <- max(range(resultsGeo2D, finite = T)[2], range(resultsOriginal, finite = T)[2], range(resultsSF, finite = T)[2])
   
-  plot(resultsGeo2D,  col="red", main = title, xlab = "Type of graphlet", ylab = "Frequencies", type="b", axes = F)
+  plot(resultsOriginal,main = title, xlab = "Type of graphlet", ylab = "Frequencies", axes = F)
   
-  lines(resultsOriginal, col="blue", type = "b")
+  lines(resultsGeo2D, col="blue", type = "b")
   
   lines(resultsSF, col="green", type = "b")
   

@@ -2,23 +2,25 @@ generateRandomNetworks <- function (edges, vertices, rEdges, nameOfOriginal) {
   r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))
   #radius on the paper? They didn't say anything...
   
-  geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => square, T => a Torus
+  for (i in 1:100){
+    geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => square, T => a Torus
+    summary(geometric)
   
-  summary(geometric)
+    fileName <- paste0("data/raw/randomGeo2DNetwork", nameOfOriginal, i ,".sif")
+    write.graph(geometric, file = fileName, "pajek")
+  }
   
-  fileName <- paste0("data/raw/randomGeo2DNetwork", nameOfOriginal, ".sif")
-  
-  write.graph(geometric, file = fileName, "pajek")
-  
-  #http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
-  #They use exponent.out = 2.1 - 2.4
-  sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = rEdges, exponent.out = 2.1, exponent.in = -1, multiple = T)
-  
-  eSf21 <- E(sf21) #edges time!
-  
-  fileName <- paste0("data/raw/randomSFNetwork", nameOfOriginal, ".sif")
-  
-  write.graph(sf21, file = fileName, "pajek")
+  for (i in 1:100){
+    #http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
+    #They use exponent.out = 2.1 - 2.4
+    sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = rEdges, exponent.out = 2.1, exponent.in = -1, multiple = T)
+    
+    eSf21 <- E(sf21) #edges time!
+    
+    fileName <- paste0("data/raw/randomSFNetwork", nameOfOriginal, i ,".sif")
+    
+    write.graph(sf21, file = fileName, "pajek")
+  }
   
   #BA model (scale-free)
   #They use power = 2.1 - 2.4
