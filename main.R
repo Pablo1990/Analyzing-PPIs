@@ -12,15 +12,20 @@ source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/
 edges <- 8015
 r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))
 
-generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000, nameOfOriginal = "SCerevisiae")
+nameSC <- "SCerevisiae"
+generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000, nameOfOriginal = nameSC)
 
-generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, nameOfOriginal = "Drosophila")
+nameDroso <- "Drosophila"
+generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, nameOfOriginal = nameDroso)
 
-generateRandomNetworks(vertices = 2911, edges = 5123, rEdges = 5123, nameOfOriginal = "CElegans")
+nameCEle <- "CElegans"
+generateRandomNetworks(vertices = 2911, edges = 5123, rEdges = 5123, nameOfOriginal = nameCEle)
 
-generateRandomNetworks(vertices = 2018, edges = 2930, rEdges = 2990, nameOfOriginal = "YeastAnother")
+nameYeastA <- "YeastAnother"
+generateRandomNetworks(vertices = 2018, edges = 2930, rEdges = 2990, nameOfOriginal = nameYeastA)
 
-generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, nameOfOriginal = "SCerevisiaeRefined")
+nameSCRevised <- "SCerevisiaeRevised"
+generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, nameOfOriginal = nameSCRevised)
 
 
 
@@ -30,16 +35,21 @@ generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, nameOfOrigi
 
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
 
-layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE))
+#layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE))
 
 geo2DGC <- read.csv(file = "data/geo2DGraphletsCount.txt", sep = "\t")
-showGraphletCountInformation(geo2DGC, "Random geometric graph")
+resultsGeo2D <- showGraphletCountInformation(geo2DGC, "Random geometric graph")
+
+#http://statmethods.net/graphs/line.html
+plot(resultsGeo2D, main = "Saccharomyces", xlab = "Type of graphlet", ylab = "Frequencies", type="l",col="red")
 
 sf <- read.csv(file = "data/sfGraphletsCount.txt", sep = "\t")
-showGraphletCountInformation(sf, "Random Scale free")
+resultsSF <- showGraphletCountInformation(sf, "Random Scale free")
+lines(resultsSF, col="green")
 
 original <- read.csv(file = "data/graphletsCountsSaccharomyces.txt", sep = "\t")
-showGraphletCountInformation(original, "S. Cerevisiae")
+resultsOriginal <- showGraphletCountInformation(original, "S. Cerevisiae")
+lines(resultsOriginal, col="blue")
 
 original1 <- read.csv(file = "data/drophilaGraphletCounter.txt", sep = "\t")
 showGraphletCountInformation(original1, "Drosophila")
@@ -53,5 +63,18 @@ showGraphletCountInformation(originalRefined, "S. Cerevisiae refined")
 originalRefined <- read.csv(file = "data/yeastAnotherGraphletCounter.txt", sep = "\t")
 showGraphletCountInformation(originalRefined, "S. Cerevisiae another one")
 
+# --------------------------------------
+
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/plotingResults.R', echo=TRUE)
+
+plotingResults(title = "Saccharomyces", 
+               fileGeo2D = "data/raw/randomGeo2DNetworkSCerevisiae.sifGC.txt", 
+               fileOriginal = "data/raw/Y2H-SaccharomycesCerevisiae.txtGC.txt", 
+               fileSF = "data/raw/randomSFNetworkSCerevisiae.sifGC.txt")
+
+plotingResults(title = "C. Elegans", 
+               fileGeo2D = "data/raw/randomGeo2DNetworkCElegans.sifGC.txt", 
+               fileOriginal = "data/raw/Y2H-CaenorhabditisElegans.txtGC.txt", 
+               fileSF = "data/raw/randomSFNetworkCElegans.sifGC.txt")
 
 
