@@ -1,4 +1,4 @@
-#Pablo Vicente-Munuera's code
+#Developed by Pablo Vicente-Munuera
 
 #Maybe
 #library("ergm.graphlets", lib.loc="/Library/Frameworks/R.framework/Versions/3.1/Resources/library")

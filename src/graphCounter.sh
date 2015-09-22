@@ -22,4 +22,5 @@ do
 	./gc.sh $file -all > "${file}GC.txt"
 done
 
+cd /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/data/raw/
 mv *GC.txt ../results/
