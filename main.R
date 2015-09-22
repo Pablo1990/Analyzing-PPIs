@@ -13,19 +13,24 @@ edges <- 8015
 r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))
 
 nameSC <- "SCerevisiae"
-generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000, nameOfOriginal = nameSC)
+rRRGSC <- 0.0158
+generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000, rRRG = rRRGSC ,nameOfOriginal = nameSC)
 
 nameDroso <- "Drosophila"
-generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, nameOfOriginal = nameDroso)
+rRRGDroso <- 0.0165
+generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, rRRG = rRRGDroso, nameOfOriginal = nameDroso)
 
 nameCEle <- "CElegans"
-generateRandomNetworks(vertices = 2911, edges = 5123, rEdges = 5123, nameOfOriginal = nameCEle)
+rRRGCEle <- 0.0199
+generateRandomNetworks(vertices = 2911, edges = 5123, rEdges = 5123, rRRG = rRRGCEle, nameOfOriginal = nameCEle)
 
 nameYeastA <- "YeastAnother"
-generateRandomNetworks(vertices = 2018, edges = 2930, rEdges = 2990, nameOfOriginal = nameYeastA)
+rRRGYeA <- 0.0217
+generateRandomNetworks(vertices = 2018, edges = 2930, rEdges = 2990, rRRG = rRRGYeA, nameOfOriginal = nameYeastA)
 
 nameSCRevised <- "SCerevisiaeRevised"
-generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, nameOfOriginal = nameSCRevised)
+rRRGSc <- 0.0171
+generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, rRRG = rRRGSc, nameOfOriginal = nameSCRevised)
 
 
 
