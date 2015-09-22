@@ -1,3 +1,4 @@
+library(igraph)
 
 generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOriginal) {
   source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/samples/RRG_function.R', echo=TRUE)
@@ -30,10 +31,11 @@ generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOrigina
   
   for (i in 1:100){
     rrg <- make_rrg(n = vertices, r = rRRG)
-    rrg$edges <- length(rrg$adjacency[rrg$adjacency == 1])/2
+
+    rrgG <- graph.adjacency(rrg$adjacency, mode = "undirected")
     
     fileName <- paste0("data/raw/randomRRGNetwork", nameOfOriginal, i ,".sif")
     
-    write.graph(sf21, file = fileName, "pajek")
+    write.graph(rrgG, file = fileName, "pajek")
   }
 }
