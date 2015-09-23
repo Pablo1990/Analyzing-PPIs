@@ -39,11 +39,17 @@ generateRandomNetworks(vertices = 4141, edges = 7686, rEdges = 7786, rRRG = rRRG
 # ---------------- Reading results ------------#
 
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/distanceBetweenGraphlets.R', echo=TRUE)
 
 #layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE))
 
-geo2DGC <- read.csv(file = "data/geo2DGraphletsCount.txt", sep = "\t")
-resultsGeo2D <- showGraphletCountInformation(geo2DGC, "Random geometric graph")
+resultsGeo2D <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomGeo2DNetwork", nameOfOriginal = nameSC)
+original <- read.csv(file = "data/results/Y2H-SaccharomycesCerevisiae.txtGC.txt", sep = "\t")
+resultsOriginal <- showGraphletCountInformation(original)
+
+print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2D))
+
+#-----------------------------------------------
 
 #http://statmethods.net/graphs/line.html
 plot(resultsGeo2D, main = "Saccharomyces", xlab = "Type of graphlet", ylab = "Frequencies", type="l",col="red")

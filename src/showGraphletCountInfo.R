@@ -6,7 +6,7 @@ showGraphletCountInformation <- function (graphletCounter) {
   sumRaw_countByFactor <- c(-log10(sum(subset(graphletCounter, graphletCounter$ORBIT == 0)$RAW_COUNT)/totalFreq))
   i <- 0
   for (i in 1:72) {
-    sumRaw_countByFactor <- c(sumRaw_countByFactor, -log10(sum(subset(graphletCounter, graphletCounter$ORBIT == i)$RAW_COUNT)/totalFreq))
+    sumRaw_countByFactor <- c(sumRaw_countByFactor, -log10(sum(subset(graphletCounter, graphletCounter$ORBIT == i & graphletCounter$RAW_COUNT >= 0)$RAW_COUNT)/totalFreq))
   }
   
   #plot(sumRaw_countByFactor, main = title, xlab = "Type of graphlet", ylab = "Frequencies")
