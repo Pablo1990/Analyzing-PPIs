@@ -12,3 +12,15 @@ showGraphletCountInformation <- function (graphletCounter) {
   #plot(sumRaw_countByFactor, main = title, xlab = "Type of graphlet", ylab = "Frequencies")
   return (sumRaw_countByFactor)
 }
+
+showGraphletCountInformationFromRandom <- function (fileNameStart, nameOfOriginal) {
+  resultMatrix <- matrix(, nrow=0, ncol=72)
+  for (i in 1:100){
+    fileName <- paste0(fileNameStart, nameOfOriginal, i ,".sifGC.txt")
+    csv <- read.csv(file = fileName, sep = "\t")
+    resultMatrix <- rbind(resultMatrix, showGraphletCountInformation(csv))
+  }
+  print (resultMatrix)
+  return (resultMatrix)
+}
+
