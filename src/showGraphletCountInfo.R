@@ -14,13 +14,13 @@ showGraphletCountInformation <- function (graphletCounter) {
 }
 
 showGraphletCountInformationFromRandom <- function (fileNameStart, nameOfOriginal) {
-  resultMatrix <- matrix(, nrow=0, ncol=72)
+  resultMatrix <- matrix(, nrow=0, ncol=73)
   for (i in 1:100){
     fileName <- paste0(fileNameStart, nameOfOriginal, i ,".sifGC.txt")
+    print (fileName)
     csv <- read.csv(file = fileName, sep = "\t")
     resultMatrix <- rbind(resultMatrix, showGraphletCountInformation(csv))
   }
-  print (resultMatrix)
-  return (resultMatrix)
+  return (colMeans(resultMatrix))
 }
 
