@@ -50,13 +50,13 @@ resultsGeo2D <- showGraphletCountInformationFromRandom(fileNameStart = "data/res
 original <- read.csv(file = "data/results/Y2H-SaccharomycesCerevisiae.txtGC.txt", sep = "\t")
 resultsOriginal <- showGraphletCountInformation(original)
 
-print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2D))
+print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2D)) #2.871464
 
 resultsSf <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomSFNetwork", nameOfOriginal = nameSC)
 print(distanceBetweenGraphlets(resultsOriginal, resultsSf)) #Not Yet!
 
 resultsRRG <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomRRGNetwork", nameOfOriginal = nameSC)
-print(distanceBetweenGraphlets(resultsOriginal, resultsRRG))
+print(distanceBetweenGraphlets(resultsOriginal, resultsRRG)) #2.8688
 
   #-- CElegans
 nameCEle <- "CElegans"
@@ -65,13 +65,13 @@ resultsGeo2D <- showGraphletCountInformationFromRandom(fileNameStart = "data/res
 original <- read.csv(file = "data/results/Y2H-CaenorhabditisElegans.txtGC.txt", sep = "\t")
 resultsOriginal <- showGraphletCountInformation(original)
 
-print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2D))
+print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2D)) #2.226287
 
 resultsSf <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomSFNetwork", nameOfOriginal = nameCEle)
-print(distanceBetweenGraphlets(resultsOriginal, resultsSf))
+print(distanceBetweenGraphlets(resultsOriginal, resultsSf)) #1.507073
 
 resultsRRG <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomRRGNetwork", nameOfOriginal = nameCEle)
-print(distanceBetweenGraphlets(resultsOriginal, resultsRRG))
+print(distanceBetweenGraphlets(resultsOriginal, resultsRRG)) #2.226039
 
     #--- Drosophila
 nameDroso <- "Drosophila"

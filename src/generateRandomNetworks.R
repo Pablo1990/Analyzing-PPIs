@@ -30,7 +30,7 @@ generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOrigina
   #sf21 <- barabasi.game(n = vertices, power = 2.1, m = vertices/10, directed = F)
   
   for (i in 1:100){
-    rrg <- make_rrg(n = vertices, r = rRRG)
+    rrg <- make_rrg(n = vertices, r = rRRG, a = 0.8)
 
     rrgG <- graph.adjacency(rrg$adjacency, mode = "undirected")
     
