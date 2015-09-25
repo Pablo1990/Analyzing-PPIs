@@ -1,4 +1,4 @@
-
+#Developed by Pablo Vicente-Munuera
 generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOriginal) {
   source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/samples/RRG_function.R', echo=TRUE)
   r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))

@@ -1,4 +1,4 @@
-#Code wrote by Pablo Vicente-Munuera
+#Developed by Pablo Vicente-Munuera
 
 #Another script:
 #cut -f1,3- Y2H-CaenorhabditisElegans.sif > Y2H-CaenorhabditisElegans.txt

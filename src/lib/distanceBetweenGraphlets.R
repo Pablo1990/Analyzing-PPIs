@@ -1,3 +1,4 @@
+#Developed by Pablo Vicente-Munuera
 distanceBetweenGraphlets <- function(network1, network2){
   distance <- 0
   for (i in 1:73){
