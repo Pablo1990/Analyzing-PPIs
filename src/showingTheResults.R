@@ -1,6 +1,6 @@
 #Developed by Pablo Vicente-Munuera
 
-source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/plotingResults.R', echo=TRUE)
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/lib/plotingResults.R', echo=TRUE)
 
 plotingResults(title = "Saccharomyces", 
                fileGeo2D = "data/raw/randomGeo2DNetworkSCerevisiae.sifGC.txt", 
