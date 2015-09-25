@@ -2,6 +2,7 @@
 
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/lib/plotingResults.R', echo=TRUE)
 
+#YOU SHOOULD REVISE THIS! FROMRANDOM FILE!
 plotingResults(title = "Saccharomyces", 
                fileGeo2D = "data/raw/randomGeo2DNetworkSCerevisiae.sifGC.txt", 
                fileOriginal = "data/raw/Y2H-SaccharomycesCerevisiae.txtGC.txt", 
