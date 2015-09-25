@@ -1,3 +1,5 @@
+#Developed by Pablo Vicente-Munuera
+
 plotingResults <- function (fileGeo2D, title, fileOriginal, fileSF) {
   source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/showGraphletCountInfo.R', echo=TRUE)
   

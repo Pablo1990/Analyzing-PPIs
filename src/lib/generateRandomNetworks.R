@@ -1,4 +1,3 @@
-library(igraph)
 
 generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOriginal) {
   source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/samples/RRG_function.R', echo=TRUE)

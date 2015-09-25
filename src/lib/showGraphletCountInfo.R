@@ -1,3 +1,5 @@
+#Developed by Pablo Vicente-Munuera
+
 showGraphletCountInformation <- function (graphletCounter) {
   as.data.frame(row.names = graphletCounter$ORBIT, optional = T, graphletCounter$RAW_COUNT)
   
