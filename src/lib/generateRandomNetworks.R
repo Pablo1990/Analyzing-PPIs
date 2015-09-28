@@ -27,13 +27,20 @@ generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOrigina
   #BA model (scale-free)
   #They use power = 2.1 - 2.4
   #sf21 <- barabasi.game(n = vertices, power = 2.1, m = vertices/10, directed = F)
-  
-  for (i in 1:100){
-    rrg <- make_rrg(n = vertices, r = rRRG, a = 0.8)
+  generateRRG(vertices, rRRG, nameOfOriginal, 0.2, "02_")
+  generateRRG(vertices, rRRG, nameOfOriginal, 0.5, "02Reversed_")
+  generateRRG(vertices, rRRG, nameOfOriginal, 0.75, "075_")
+  generateRRG(vertices, rRRG, nameOfOriginal, 0.133333, "075Reversed_")
+}
 
+generateRRG <- function (vertices, rRRG, nameOfOriginal, a2, name) {
+  i <- 0
+  for (i in 1:100){
+    rrg <- make_rrg(n = vertices, r = rRRG, a = a2)
+    
     rrgG <- graph.adjacency(rrg$adjacency, mode = "undirected")
     
-    fileName <- paste0("data/raw/randomRRGNetwork", nameOfOriginal, i ,".sif")
+    fileName <- paste0("data/raw/randomRRGNetwork", nameOfOriginal, name ,i ,".sif")
     
     write.graph(rrgG, file = fileName, "pajek")
   }
