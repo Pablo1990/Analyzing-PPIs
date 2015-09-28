@@ -35,3 +35,5 @@ resultsRRGDroso02 <- showGraphletCountInformationFromRandom(fileNameStart = "dat
 resultsRRGDroso02Reversed <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomRRGNetwork", nameOfOriginal = paste0(nameSC, "02Reversed_"))
 resultsRRGDroso075 <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomRRGNetwork", nameOfOriginal = paste0(nameSC, "075_"))
 resultsRRGDroso075Reversed <- showGraphletCountInformationFromRandom(fileNameStart = "data/results/randomRRGNetwork", nameOfOriginal = paste0(nameSC, "075Reversed_"))
+
+save(resultsRRGCEle02, resultsRRGCEle02Reversed, resultsRRGCEle075, resultsRRGCEle075Reversed, resultsRRGDroso02, resultsRRGDroso02Reversed, resultsRRGDroso075, resultsRRGDroso075Reversed, resultsRRGSC02, resultsRRGSC02Reversed, resultsRRGSC075, resultsRRGSC075Reversed, file = "data/randomRRG_from_CEle_Droso_SC.RData")
