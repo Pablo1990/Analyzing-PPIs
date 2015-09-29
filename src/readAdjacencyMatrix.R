@@ -1,8 +1,8 @@
 library(igraph)
 
 readAdjacencyMatrix <- function (fileName, outputFileName) {
-  adjacencyData <- read.csv(header = F, file = fileName, sep = " ")
-  adjacencyData[1] <- NULL
+  adjacencyData <- read.csv(header = F, file = fileName, sep = "\t")
+  #adjacencyData[1] <- NULL
   adjacencyMatrix <- as.matrix(adjacencyData)
   graphM <- graph.adjacency(adjacencyMatrix, mode = "undirected")
   write.graph(graphM, file = outputFileName, "pajek")

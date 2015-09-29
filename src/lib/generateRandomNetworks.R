@@ -1,12 +1,11 @@
 #Developed by Pablo Vicente-Munuera
-generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOriginal) {
+generateRandomNetworks <- function (edges, vertices, nameOfOriginal) {
   source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/samples/RRG_function.R', echo=TRUE)
   r <- sqrt((edges*2)/(vertices*(vertices-1)*pi))
-  #radius on the paper? They didn't say anything...
   
   for (i in 1:100){
     geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => square, T => a Torus
-    summary(geometric)
+    #summary(geometric)
   
     fileName <- paste0("data/raw/randomGeo2DNetwork", nameOfOriginal, i ,".sif")
     write.graph(geometric, file = fileName, "pajek")
@@ -15,7 +14,7 @@ generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOrigina
   for (i in 1:100){
     #http://rgm3.lab.nig.ac.jp/RGM/R_rdfile?f=igraph/man/static.power.law.game.Rd&d=R_CC
     #They use exponent.out = 2.1 - 2.4
-    sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = rEdges, exponent.out = 2.1, exponent.in = -1, multiple = T)
+    sf21 <- static.power.law.game (no.of.nodes = vertices, no.of.edges = edges, exponent.out = 2.1, exponent.in = -1, multiple = T)
     
     eSf21 <- E(sf21) #edges time!
     
@@ -27,10 +26,10 @@ generateRandomNetworks <- function (edges, vertices, rEdges, rRRG, nameOfOrigina
   #BA model (scale-free)
   #They use power = 2.1 - 2.4
   #sf21 <- barabasi.game(n = vertices, power = 2.1, m = vertices/10, directed = F)
-  generateRRG(vertices, rRRG, nameOfOriginal, 0.2, "02_")
-  generateRRG(vertices, rRRG, nameOfOriginal, 0.5, "02Reversed_")
-  generateRRG(vertices, rRRG, nameOfOriginal, 0.75, "075_")
-  generateRRG(vertices, rRRG, nameOfOriginal, 0.133333, "075Reversed_")
+  generateRRG(vertices, r, nameOfOriginal, 0.2, "02_")
+  generateRRG(vertices, r, nameOfOriginal, 0.5, "02Reversed_")
+  generateRRG(vertices, r, nameOfOriginal, 0.75, "075_")
+  generateRRG(vertices, r, nameOfOriginal, 0.133333, "075Reversed_")
 }
 
 generateRRG <- function (vertices, rRRG, nameOfOriginal, a2, name) {
