@@ -5,11 +5,11 @@ source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/
 
 nameSC <- "SCerevisiae"
 #rRRGSC <- 0.0158
-generateRandomNetworks(vertices = 4561, edges = 7906, rEdges = 8000 ,nameOfOriginal = nameSC)
+generateRandomNetworks(vertices = 4561, edges = 7906, nameOfOriginal = nameSC)
 
 nameDroso <- "Drosophila"
 #rRRGDroso <- 0.0165
-generateRandomNetworks(vertices = 7621, edges = 24477, rEdges = 24477, nameOfOriginal = nameDroso)
+generateRandomNetworks(vertices = 7621, edges = 24477, nameOfOriginal = nameDroso)
 
 nameCEle <- "CElegans"
 #rRRGCEle <- 0.0199
