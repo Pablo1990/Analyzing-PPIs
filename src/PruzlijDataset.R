@@ -2,10 +2,9 @@
 
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/lib/showGraphletCountInfo.R', echo=TRUE)
 source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/lib/distanceBetweenGraphlets.R', echo=TRUE)
+source('~/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/src/lib/plotingResults.R', echo=TRUE)
 
-
-
-original <- read.csv(file = "data/YeastHighGC.txt", sep = "\t")
+original <- read.csv(file = "data/results/YeastHigh.sifGC.txt", sep = "\t")
 resultsOriginal <- showGraphletCountInformation(original)
 
 nameSC <- "YeastHigh"
@@ -33,3 +32,12 @@ print(distanceBetweenGraphlets(resultsOriginal, resultsRRGYeastHigh075Reversed))
 print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2DYeastHigh)) 
 
 print(distanceBetweenGraphlets(resultsOriginal, resultsSfYeastHigh))
+
+
+
+plotingResults(title = "Yeast Pruzlj", 
+               resultsGeo2D = resultsGeo2DYeastHigh, 
+               fileOriginal = "data/results/YeastHigh.sifGC.txt",
+               resultsSF = resultsSfYeastHigh
+)
+

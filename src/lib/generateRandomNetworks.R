@@ -7,7 +7,7 @@ generateRandomNetworks <- function (edges, vertices, nameOfOriginal) {
     geometric <- grg.game(nodes = vertices, radius = r, torus = F) #Torus: F => square, T => a Torus
     #summary(geometric)
   
-    fileName <- paste0("data/raw/randomGeo2DNetwork", nameOfOriginal, i ,".sif")
+    fileName <- paste0("data/rawRandom/randomGeo2DNetwork", nameOfOriginal, i ,".sif")
     write.graph(geometric, file = fileName, "pajek")
   }
   
@@ -18,7 +18,7 @@ generateRandomNetworks <- function (edges, vertices, nameOfOriginal) {
     
     eSf21 <- E(sf21) #edges time!
     
-    fileName <- paste0("data/raw/randomSFNetwork", nameOfOriginal, i ,".sif")
+    fileName <- paste0("data/rawRandom/randomSFNetwork", nameOfOriginal, i ,".sif")
     
     write.graph(sf21, file = fileName, "pajek")
   }
@@ -39,7 +39,7 @@ generateRRG <- function (vertices, rRRG, nameOfOriginal, a2, name) {
     
     rrgG <- graph.adjacency(rrg$adjacency, mode = "undirected")
     
-    fileName <- paste0("data/raw/randomRRGNetwork", nameOfOriginal, name ,i ,".sif")
+    fileName <- paste0("data/rawRandom/randomRRGNetwork", nameOfOriginal, name ,i ,".sif")
     
     write.graph(rrgG, file = fileName, "pajek")
   }
