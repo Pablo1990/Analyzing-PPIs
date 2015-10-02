@@ -41,3 +41,12 @@ plotingResults(title = "Yeast Pruzlj",
                resultsSF = resultsSfYeastHigh
 )
 
+#---Datasets: Yeast2010
+#edges: 76185
+#vertices: 5206
+
+nameSC <- "Yeast2010"
+generateRandomNetworks(vertices = 5206, edges = 76185, nameOfOriginal = nameSC)
+
+#---Datasets: 
+

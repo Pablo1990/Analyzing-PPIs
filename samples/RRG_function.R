@@ -6,7 +6,7 @@ make_rrg=function(n,r,a=1,b=1/a){
 #b=height of rectangle (defaults to ensure unit area)
   a1=rep(1,n) 				#a column vector of ones
   p=cbind(runif(n,0,a),runif(n,0,b))	#generate points
-  p = p^2 #Change to make a power_law
+  #p = p^3 #Change to make a power_law
   psum=rowSums(p^2)				#used in computing squared distance matrix
   A=tcrossprod(psum,a1)
   A=(A+t(A)-2*tcrossprod(p))<r^2	#A as boolean with TRUE on diagonal
