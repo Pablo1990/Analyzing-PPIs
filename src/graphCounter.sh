@@ -17,11 +17,11 @@ cd /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/softwar
 #geo2D
 #./gc.sh /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/data/randomGeo2DNetwork.sif -all > geo2DGraphletsCount.txt
 
-for file in /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/data/rawRandom/*YeastHigh*
+for file in /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/data/przulj/random/*.sif
 do
 	echo "Counting graphlets of $file"
 	./gc.sh $file -all > "${file}GC.txt"
 done
 
-cd /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/data/rawRandom
+cd /Users/pablovm1990/Documents/Dropbox/MScBioinformatics/Thesis/Project/Analyzing-PPIs/data/przulj/random
 mv *GC.txt ../results/
