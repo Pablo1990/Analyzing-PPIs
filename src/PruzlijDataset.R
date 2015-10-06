@@ -45,11 +45,11 @@ plotingResults(title = "Yeast Pruzlj",
 )
 
 #---Datasets: YeastLow
-#edges: 
-#vertices: 
+#edges: 60969
+#vertices: 3854 
 
 name <- "YeastLow"
-generateRandomNetworks(vertices = , edges = , nameOfOriginal = name)
+generateRandomNetworks(vertices = 3854, edges = 60969, nameOfOriginal = name)
 
 resultsGeo2DYeastLow <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomGeo2DNetwork", nameOfOriginal = name)
 resultsSfYeastLow <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomSFNetwork", nameOfOriginal = name)
@@ -104,15 +104,10 @@ resultsRRGFlyHigh075 <- showGraphletCountInformationFromRandom(fileNameStart = "
 resultsRRGFlyHigh075Reversed <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomRRGNetwork", nameOfOriginal = paste0(name, "075Reversed_"))
 
 print(distanceBetweenGraphlets(resultsOriginal, resultsRRGFlyHigh02)) 
-
 print(distanceBetweenGraphlets(resultsOriginal, resultsRRGFlyHigh02Reversed)) 
-
 print(distanceBetweenGraphlets(resultsOriginal, resultsRRGFlyHigh075)) 
-
 print(distanceBetweenGraphlets(resultsOriginal, resultsRRGFlyHigh075Reversed)) 
-
 print(distanceBetweenGraphlets(resultsOriginal, resultsGeo2DFlyHigh)) 
-
 print(distanceBetweenGraphlets(resultsOriginal, resultsSfFlyHigh))
 
 #---Dataset: FlyLow (Giot - 2003) - Entire
@@ -149,6 +144,7 @@ generateRandomNetworks(vertices = 700, edges = 1322, nameOfOriginal = name)
 original <- read.csv(file = "data/przulj/raw/Yu_GoldStd.sifGC.txt", sep = "\t")
 resultsOriginal <- showGraphletCountInformation(original)
 
+name <- "Yu_GoldStd"
 resultsGeo2DYu_GoldStd <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomGeo2DNetwork", nameOfOriginal = name)
 resultsSfYu_GoldStd <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomSFNetwork", nameOfOriginal = name)
 resultsRRGYu_GoldStd02 <- showGraphletCountInformationFromRandom(fileNameStart = "data/przulj/results/randomRRGNetwork", nameOfOriginal = paste0(name, "02_"))
